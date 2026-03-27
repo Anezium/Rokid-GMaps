@@ -1,5 +1,9 @@
 # Rokid-GMaps
 
+<p align="center">
+  <img src="Rokid_GMaps_logo.png" width="160" alt="Rokid-GMaps logo" />
+</p>
+
 > Based on [chartmann1590/Rokid-Maps](https://github.com/chartmann1590/Rokid-Maps) and [bcefghj/Rokid_Subway](https://github.com/bcefghj/Rokid_Subway) — full credit to both for the foundation.
 
 Turn-by-turn navigation for Rokid AR glasses with optional Google provider support and transit mode. A phone app acts as the navigation brain; the glasses display a live AR HUD with a rotating map, maneuver instructions, and a transit recap view.
