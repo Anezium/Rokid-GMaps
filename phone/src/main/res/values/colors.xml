@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="primary">#00C853</color>
-    <color name="primary_dark">#009624</color>
-    <color name="white">#FFFFFF</color>
+    <color name="primary">#2EE66B</color>
+    <color name="primary_dark">#17211C</color>
+    <color name="white">#F0F4F2</color>
+
+    <color name="graphite_950">#0E1110</color>
+    <color name="graphite_900">#121615</color>
+    <color name="graphite_850">#171D1A</color>
+    <color name="graphite_800">#1D2521</color>
+    <color name="graphite_700">#28332E</color>
+
+    <color name="text_primary">#F0F4F2</color>
+    <color name="text_secondary">#C5CCC8</color>
+    <color name="text_muted">#89938E</color>
+    <color name="text_faint">#5E6863</color>
+    <color name="line_soft">#27302C</color>
+
+    <color name="signal_green">#2EE66B</color>
+    <color name="signal_green_deep">#1A6E38</color>
+    <color name="connection_blue">#55A8FF</color>
+    <color name="connection_blue_deep">#1F5F98</color>
+    <color name="link_blue">#55A8FF</color>
+    <color name="attention_orange">#FF9F43</color>
+    <color name="attention_orange_deep">#8A4F16</color>
+    <color name="danger_red">#D94A4A</color>
+    <color name="on_signal">#06110A</color>
 </resources>

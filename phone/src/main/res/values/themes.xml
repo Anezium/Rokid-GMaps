@@ -2,53 +2,80 @@
 <resources>
 
     <style name="Theme.RokidHud" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <item name="colorPrimary">#00E676</item>
-        <item name="colorPrimaryVariant">#00C853</item>
-        <item name="colorOnPrimary">#000000</item>
-        <item name="colorSecondary">#448AFF</item>
-        <item name="colorSecondaryVariant">#2962FF</item>
-        <item name="colorOnSecondary">#FFFFFF</item>
-        <item name="colorSurface">#1E1E1E</item>
-        <item name="colorOnSurface">#E0E0E0</item>
-        <item name="colorError">#CF6679</item>
-        <item name="android:windowBackground">#121212</item>
-        <item name="android:statusBarColor">#0A0A0A</item>
-        <item name="android:navigationBarColor">#0A0A0A</item>
+        <item name="colorPrimary">@color/signal_green</item>
+        <item name="colorPrimaryVariant">@color/signal_green_deep</item>
+        <item name="colorOnPrimary">@color/on_signal</item>
+        <item name="colorSecondary">@color/connection_blue</item>
+        <item name="colorSecondaryVariant">@color/connection_blue_deep</item>
+        <item name="colorOnSecondary">@color/text_primary</item>
+        <item name="colorSurface">@color/graphite_850</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+        <item name="colorError">@color/danger_red</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:windowBackground">@color/graphite_950</item>
+        <item name="android:statusBarColor">@color/graphite_950</item>
+        <item name="android:navigationBarColor">@color/graphite_950</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar">false</item>
     </style>
 
     <style name="CardSection">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:background">@drawable/bg_card</item>
-        <item name="android:padding">16dp</item>
-        <item name="android:layout_marginBottom">12dp</item>
+        <item name="android:padding">14dp</item>
+        <item name="android:layout_marginBottom">14dp</item>
     </style>
 
     <style name="SectionTitle">
-        <item name="android:textColor">#9E9E9E</item>
+        <item name="android:textColor">@color/text_muted</item>
         <item name="android:textSize">11sp</item>
         <item name="android:textAllCaps">true</item>
-        <item name="android:letterSpacing">0.1</item>
-        <item name="android:layout_marginBottom">10dp</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:layout_marginBottom">0dp</item>
     </style>
 
     <style name="PrimaryButton" parent="Widget.MaterialComponents.Button">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">48dp</item>
-        <item name="backgroundTint">#00E676</item>
-        <item name="android:textColor">#000000</item>
+        <item name="backgroundTint">@color/signal_green</item>
+        <item name="android:textColor">@color/on_signal</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">15sp</item>
-        <item name="cornerRadius">12dp</item>
+        <item name="cornerRadius">8dp</item>
     </style>
 
     <style name="SecondaryButton" parent="Widget.MaterialComponents.Button">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">44dp</item>
-        <item name="backgroundTint">#2A2A2A</item>
-        <item name="android:textColor">#00E676</item>
+        <item name="backgroundTint">@color/graphite_700</item>
+        <item name="android:textColor">@color/text_secondary</item>
         <item name="android:textSize">14sp</item>
-        <item name="cornerRadius">12dp</item>
+        <item name="cornerRadius">8dp</item>
+    </style>
+
+    <style name="ConsoleButton" parent="Widget.MaterialComponents.Button">
+        <item name="android:minWidth">0dp</item>
+        <item name="android:minHeight">0dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:stateListAnimator">@null</item>
+        <item name="backgroundTint">@color/graphite_700</item>
+        <item name="cornerRadius">8dp</item>
+    </style>
+
+    <style name="ChipButton" parent="ConsoleButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">34dp</item>
+        <item name="android:paddingLeft">14dp</item>
+        <item name="android:paddingRight">14dp</item>
+        <item name="backgroundTint">@color/graphite_800</item>
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:textSize">12sp</item>
     </style>
 
     <style name="ToggleRow">
@@ -56,8 +83,17 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:orientation">horizontal</item>
         <item name="android:gravity">center_vertical</item>
-        <item name="android:paddingTop">12dp</item>
-        <item name="android:paddingBottom">12dp</item>
+        <item name="android:paddingTop">13dp</item>
+        <item name="android:paddingBottom">13dp</item>
+    </style>
+
+    <style name="ToggleRowCompact">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
     </style>
 
 </resources>

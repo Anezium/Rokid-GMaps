@@ -2,245 +2,262 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#121212"
-    android:fillViewport="true"
-    android:clipToPadding="false">
+    android:background="@color/graphite_950"
+    android:clipToPadding="false"
+    android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:paddingHorizontal="16dp"
-        android:paddingTop="20dp"
-        android:paddingBottom="32dp">
+        android:paddingTop="18dp"
+        android:paddingBottom="28dp">
 
-        <!-- ═══════════════════════════════════════════════════════════════ -->
-        <!-- HEADER                                                         -->
-        <!-- ═══════════════════════════════════════════════════════════════ -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:layout_marginBottom="6dp">
+            android:layout_marginBottom="14dp"
+            android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="0dp"
+            <TextView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                android:fontFamily="sans-serif-medium"
+                android:text="Rokid Maps"
+                android:textColor="@color/text_primary"
+                android:textSize="25sp"
+                android:textStyle="bold" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Rokid HUD"
-                    android:textColor="#FFFFFF"
-                    android:textSize="26sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Maps &amp; Navigation"
-                    android:textColor="#00E676"
-                    android:textSize="14sp"
-                    android:layout_marginTop="-2dp" />
-            </LinearLayout>
-
-            <Button
-                android:id="@+id/btnStart"
-                android:layout_width="wrap_content"
-                android:layout_height="44dp"
-                android:minWidth="130dp"
-                android:text="Start Streaming"
-                android:backgroundTint="#00E676"
-                android:textColor="#000000"
-                android:textSize="13sp"
-                android:textStyle="bold"
-                android:insetTop="0dp"
-                android:insetBottom="0dp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="Companion console"
+                android:textColor="@color/signal_green"
+                android:textSize="13sp" />
         </LinearLayout>
 
-        <!-- Glasses connection status bar -->
         <LinearLayout
             android:id="@+id/glassesStatusBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:background="@drawable/bg_card"
-            android:paddingHorizontal="14dp"
-            android:paddingVertical="10dp"
-            android:layout_marginBottom="16dp">
+            android:layout_marginBottom="14dp"
+            android:background="@drawable/bg_card_blue"
+            android:orientation="vertical"
+            android:padding="14dp">
 
-            <View
-                android:id="@+id/glassesStatusDot"
-                android:layout_width="10dp"
-                android:layout_height="10dp"
-                android:background="@drawable/bg_status_dot_disconnected"
-                android:layout_marginEnd="10dp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <View
+                    android:id="@+id/glassesStatusDot"
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/bg_status_dot_disconnected" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/SectionTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="2dp"
+                        android:text="GLASSES LINK"
+                        android:textColor="@color/connection_blue" />
+
+                    <TextView
+                        android:id="@+id/glassesStatusText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text="No glasses paired"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnStart"
+                    style="@style/ConsoleButton"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1.25"
+                    android:backgroundTint="@color/signal_green"
+                    android:text="Start Streaming"
+                    android:textColor="@color/on_signal"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btnScanGlasses"
+                    style="@style/ConsoleButton"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/graphite_700"
+                    android:text="Pair"
+                    android:textColor="@color/connection_blue"
+                    android:textSize="11sp" />
+
+                <Button
+                    android:id="@+id/btnUpdateGlassesApp"
+                    style="@style/ConsoleButton"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/graphite_700"
+                    android:text="Update"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="11sp" />
+            </LinearLayout>
 
             <TextView
-                android:id="@+id/glassesStatusText"
-                android:layout_width="0dp"
+                android:id="@+id/statusText"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Glasses not connected"
-                android:textColor="#9E9E9E"
-                android:textSize="13sp" />
-
-            <Button
-                android:id="@+id/btnScanGlasses"
-                android:layout_width="wrap_content"
-                android:layout_height="34dp"
-                android:minWidth="0dp"
-                android:text="Pair Glasses"
-                android:backgroundTint="#2A2A2A"
-                android:textColor="#00E676"
-                android:textSize="12sp"
-                android:insetTop="0dp"
-                android:insetBottom="0dp"
-                android:paddingHorizontal="16dp"
-                android:layout_marginEnd="8dp" />
-            <Button
-                android:id="@+id/btnUpdateGlassesApp"
-                android:layout_width="wrap_content"
-                android:layout_height="34dp"
-                android:minWidth="0dp"
-                android:text="Update app"
-                android:backgroundTint="#2A2A2A"
-                android:textColor="#00E676"
-                android:textSize="12sp"
-                android:insetTop="0dp"
-                android:insetBottom="0dp"
-                android:paddingHorizontal="16dp" />
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_command_line"
+                android:ellipsize="end"
+                android:fontFamily="monospace"
+                android:maxLines="2"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="8dp"
+                android:text="Ready. Start streaming when glasses are available."
+                android:textColor="@color/text_muted"
+                android:textSize="12sp" />
         </LinearLayout>
 
-        <!-- ═══════════════════════════════════════════════════════════════ -->
-        <!-- SEARCH & NAVIGATE                                              -->
-        <!-- ═══════════════════════════════════════════════════════════════ -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="@drawable/bg_card"
-            android:padding="16dp"
-            android:layout_marginBottom="12dp">
+            android:layout_marginBottom="14dp"
+            android:orientation="vertical">
 
             <TextView
                 style="@style/SectionTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="NAVIGATE" />
+                android:text="DESTINATION" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Mode"
-                    android:textColor="#81C784"
-                    android:textSize="13sp"
-                    android:textStyle="bold"
-                    android:layout_marginEnd="10dp" />
-
-                <Button
-                    android:id="@+id/btnRouteDrive"
-                    android:layout_width="0dp"
-                    android:layout_height="34dp"
-                    android:layout_weight="1"
-                    android:text="Drive"
-                    android:textSize="12sp"
-                    android:textStyle="bold"
-                    android:minWidth="0dp"
-                    android:insetTop="0dp"
-                    android:insetBottom="0dp" />
-
-                <Button
-                    android:id="@+id/btnRouteWalk"
-                    android:layout_width="0dp"
-                    android:layout_height="34dp"
-                    android:layout_weight="1"
-                    android:text="Walk"
-                    android:textSize="12sp"
-                    android:textStyle="bold"
-                    android:minWidth="0dp"
-                    android:layout_marginStart="8dp"
-                    android:insetTop="0dp"
-                    android:insetBottom="0dp" />
-
-                <Button
-                    android:id="@+id/btnRouteTransit"
-                    android:layout_width="0dp"
-                    android:layout_height="34dp"
-                    android:layout_weight="1"
-                    android:text="Transit"
-                    android:textSize="12sp"
-                    android:textStyle="bold"
-                    android:minWidth="0dp"
-                    android:layout_marginStart="8dp"
-                    android:insetTop="0dp"
-                    android:insetBottom="0dp" />
-            </LinearLayout>
-
-            <!-- Search bar -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:orientation="horizontal"
+                android:layout_marginTop="8dp"
                 android:background="@drawable/bg_search"
                 android:gravity="center_vertical"
-                android:paddingStart="16dp"
-                android:paddingEnd="4dp"
-                android:layout_marginBottom="10dp">
+                android:orientation="horizontal"
+                android:paddingStart="14dp"
+                android:paddingEnd="4dp">
 
                 <EditText
                     android:id="@+id/searchInput"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:hint="Search for a place..."
-                    android:textColor="#E0E0E0"
-                    android:textColorHint="#616161"
-                    android:textSize="15sp"
                     android:background="@null"
+                    android:hint="Search destination"
                     android:imeOptions="actionSearch"
                     android:inputType="text"
-                    android:singleLine="true" />
+                    android:singleLine="true"
+                    android:textColor="@color/text_primary"
+                    android:textColorHint="@color/text_faint"
+                    android:textSize="15sp" />
 
                 <ImageButton
                     android:id="@+id/btnSearch"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@android:drawable/ic_menu_search"
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:contentDescription="Search"
-                    android:tint="#00E676" />
+                    android:src="@android:drawable/ic_menu_search"
+                    android:tint="@color/signal_green" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:text="Mode"
+                    android:textColor="@color/text_muted"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btnRouteDrive"
+                    style="@style/ConsoleButton"
+                    android:layout_width="0dp"
+                    android:layout_height="36dp"
+                    android:layout_weight="1"
+                    android:text="Drive"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btnRouteWalk"
+                    style="@style/ConsoleButton"
+                    android:layout_width="0dp"
+                    android:layout_height="36dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:text="Walk"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btnRouteTransit"
+                    style="@style/ConsoleButton"
+                    android:layout_width="0dp"
+                    android:layout_height="36dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:text="Transit"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
             </LinearLayout>
 
             <Button
                 android:id="@+id/btnSearchNearby"
+                style="@style/ConsoleButton"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:text="Search Around Me"
-                android:backgroundTint="#1E3A2F"
-                android:textColor="#A5D6A7"
-                android:textSize="13sp"
-                android:insetTop="0dp"
-                android:insetBottom="0dp"
-                android:layout_marginBottom="8dp" />
+                android:layout_height="38dp"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="@color/graphite_800"
+                android:text="Nearby"
+                android:textColor="@color/signal_green"
+                android:textSize="12sp"
+                android:textStyle="bold" />
 
             <HorizontalScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:scrollbars="none"
-                android:layout_marginBottom="10dp">
+                android:layout_marginTop="10dp"
+                android:scrollbars="none">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -249,378 +266,327 @@
 
                     <Button
                         android:id="@+id/btnNearbyFood"
-                        android:layout_width="wrap_content"
-                        android:layout_height="36dp"
-                        android:text="Food"
-                        android:backgroundTint="#252525"
-                        android:textColor="#E0E0E0"
-                        android:textSize="12sp"
-                        android:insetTop="0dp"
-                        android:insetBottom="0dp" />
+                        style="@style/ChipButton"
+                        android:text="Food" />
 
                     <Button
                         android:id="@+id/btnNearbyCoffee"
-                        android:layout_width="wrap_content"
-                        android:layout_height="36dp"
-                        android:text="Coffee"
-                        android:backgroundTint="#252525"
-                        android:textColor="#E0E0E0"
-                        android:textSize="12sp"
-                        android:insetTop="0dp"
-                        android:insetBottom="0dp"
-                        android:layout_marginStart="8dp" />
+                        style="@style/ChipButton"
+                        android:layout_marginStart="8dp"
+                        android:text="Coffee" />
 
                     <Button
                         android:id="@+id/btnNearbyPharmacy"
-                        android:layout_width="wrap_content"
-                        android:layout_height="36dp"
-                        android:text="Pharmacy"
-                        android:backgroundTint="#252525"
-                        android:textColor="#E0E0E0"
-                        android:textSize="12sp"
-                        android:insetTop="0dp"
-                        android:insetBottom="0dp"
-                        android:layout_marginStart="8dp" />
+                        style="@style/ChipButton"
+                        android:layout_marginStart="8dp"
+                        android:text="Pharmacy" />
 
                     <Button
                         android:id="@+id/btnNearbyGas"
-                        android:layout_width="wrap_content"
-                        android:layout_height="36dp"
-                        android:text="Gas"
-                        android:backgroundTint="#252525"
-                        android:textColor="#E0E0E0"
-                        android:textSize="12sp"
-                        android:insetTop="0dp"
-                        android:insetBottom="0dp"
-                        android:layout_marginStart="8dp" />
+                        style="@style/ChipButton"
+                        android:layout_marginStart="8dp"
+                        android:text="Gas" />
 
                     <Button
                         android:id="@+id/btnNearbyMetro"
-                        android:layout_width="wrap_content"
-                        android:layout_height="36dp"
-                        android:text="Metro"
-                        android:backgroundTint="#252525"
-                        android:textColor="#E0E0E0"
-                        android:textSize="12sp"
-                        android:insetTop="0dp"
-                        android:insetBottom="0dp"
-                        android:layout_marginStart="8dp" />
+                        style="@style/ChipButton"
+                        android:layout_marginStart="8dp"
+                        android:text="Metro" />
                 </LinearLayout>
             </HorizontalScrollView>
 
-            <!-- Saved places toggle -->
             <Button
                 android:id="@+id/btnShowSaved"
+                style="@style/ConsoleButton"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:text="Saved Places"
+                android:layout_height="38dp"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="@color/graphite_850"
                 android:drawableStart="@android:drawable/btn_star_big_on"
-                android:drawableTint="#FFD600"
-                android:backgroundTint="#252525"
-                android:textColor="#BDBDBD"
-                android:textSize="13sp"
-                android:insetTop="0dp"
-                android:insetBottom="0dp"
+                android:drawableTint="@color/attention_orange"
                 android:gravity="center"
                 android:paddingStart="12dp"
-                android:layout_marginBottom="4dp" />
+                android:text="Saved"
+                android:textColor="@color/text_secondary"
+                android:textSize="12sp" />
 
-            <!-- Search results / saved places list -->
             <ListView
                 android:id="@+id/searchResults"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:background="#181818"
-                android:divider="#2A2A2A"
+                android:layout_height="180dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_console_slot"
+                android:divider="@color/line_soft"
                 android:dividerHeight="1dp"
-                android:visibility="gone"
-                android:nestedScrollingEnabled="true" />
+                android:nestedScrollingEnabled="true"
+                android:visibility="gone" />
 
-            <!-- Route card (shown after selecting a result) -->
             <LinearLayout
                 android:id="@+id/routeCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
+                android:layout_marginTop="12dp"
                 android:background="@drawable/bg_card_accent"
+                android:orientation="vertical"
                 android:padding="14dp"
-                android:layout_marginTop="10dp"
                 android:visibility="gone">
+
+                <TextView
+                    style="@style/SectionTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6dp"
+                    android:text="ROUTE PREVIEW"
+                    android:textColor="@color/signal_green" />
 
                 <TextView
                     android:id="@+id/routeDestText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="#FFFFFF"
-                    android:textSize="15sp"
-                    android:textStyle="bold"
+                    android:ellipsize="end"
                     android:maxLines="2"
-                    android:ellipsize="end" />
+                    android:textColor="@color/text_primary"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/routeInfoText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="#81C784"
-                    android:textSize="13sp"
-                    android:layout_marginTop="4dp" />
+                    android:layout_marginTop="5dp"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="13sp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginTop="12dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <Button
-                            android:id="@+id/btnPreviewRoute"
-                            android:layout_width="0dp"
-                            android:layout_height="44dp"
-                            android:layout_weight="1"
-                            android:text="Preview Route"
-                            android:backgroundTint="#2A2A2A"
-                            android:textColor="#A5D6A7"
-                            android:textStyle="bold"
-                            android:textSize="13sp"
-                            android:insetTop="0dp"
-                            android:insetBottom="0dp"
-                            android:layout_marginEnd="8dp" />
-
-                        <Button
-                            android:id="@+id/btnNavigate"
-                            android:layout_width="0dp"
-                            android:layout_height="44dp"
-                            android:layout_weight="1"
-                            android:text="Start Navigation"
-                            android:backgroundTint="#00E676"
-                            android:textColor="#000000"
-                            android:textStyle="bold"
-                            android:textSize="13sp"
-                            android:insetTop="0dp"
-                            android:insetBottom="0dp" />
-                    </LinearLayout>
+                    android:layout_marginTop="12dp"
+                    android:orientation="horizontal">
 
                     <Button
-                        android:id="@+id/btnSavePlace"
-                        android:layout_width="match_parent"
-                        android:layout_height="44dp"
-                        android:text="Save"
-                        android:drawableStart="@android:drawable/btn_star_big_on"
-                        android:drawableTint="#FFD600"
-                        android:backgroundTint="#2A2A2A"
-                        android:textColor="#FFD600"
-                        android:textSize="13sp"
-                        android:insetTop="0dp"
-                        android:insetBottom="0dp"
-                        android:layout_marginTop="8dp" />
+                        android:id="@+id/btnPreviewRoute"
+                        style="@style/ConsoleButton"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/graphite_700"
+                        android:text="Preview"
+                        android:textColor="@color/signal_green"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/btnNavigate"
+                        style="@style/ConsoleButton"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/signal_green"
+                        android:text="Navigate"
+                        android:textColor="@color/on_signal"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
                 </LinearLayout>
+
+                <Button
+                    android:id="@+id/btnSavePlace"
+                    style="@style/ConsoleButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="38dp"
+                    android:layout_marginTop="8dp"
+                    android:backgroundTint="@color/graphite_800"
+                    android:drawableStart="@android:drawable/btn_star_big_on"
+                    android:drawableTint="@color/attention_orange"
+                    android:text="Save"
+                    android:textColor="@color/attention_orange"
+                    android:textSize="12sp" />
             </LinearLayout>
         </LinearLayout>
 
-        <!-- ═══════════════════════════════════════════════════════════════ -->
-        <!-- LIVE NAVIGATION (shown during active nav)                      -->
-        <!-- ═══════════════════════════════════════════════════════════════ -->
         <LinearLayout
             android:id="@+id/navStatus"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:layout_marginBottom="14dp"
             android:background="@drawable/bg_card_accent"
-            android:padding="16dp"
-            android:layout_marginBottom="12dp"
+            android:orientation="vertical"
+            android:padding="14dp"
             android:visibility="gone">
 
             <TextView
                 style="@style/SectionTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="LIVE DIRECTIONS"
-                android:textColor="#66BB6A" />
+                android:text="LIVE ROUTE"
+                android:textColor="@color/signal_green" />
 
             <org.osmdroid.views.MapView
                 android:id="@+id/navMapView"
                 android:layout_width="match_parent"
-                android:layout_height="180dp"
+                android:layout_height="168dp"
                 android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp" />
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/bg_console_slot" />
 
-            <!-- Current step (always visible) -->
             <TextView
                 android:id="@+id/navInstructionText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="#FFFFFF"
-                android:textSize="22sp"
-                android:textStyle="bold"
                 android:lineSpacingExtra="2dp"
-                android:layout_marginBottom="4dp" />
+                android:textColor="@color/text_primary"
+                android:textSize="21sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/navDistanceText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="#A5D6A7"
-                android:textSize="18sp"
-                android:layout_marginBottom="12dp" />
+                android:layout_marginTop="4dp"
+                android:textColor="@color/signal_green"
+                android:textSize="17sp" />
 
-            <!-- Toggle full list of steps for the whole route -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:layout_marginTop="12dp"
                 android:gravity="center_vertical"
-                android:layout_marginBottom="6dp">
+                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Show full route steps"
-                    android:textColor="#A5D6A7"
-                    android:textSize="14sp" />
+                    android:text="Route steps"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="13sp" />
 
                 <Switch
                     android:id="@+id/switchShowFullRouteSteps"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:checked="false"
-                    android:thumbTint="#66BB6A"
-                    android:trackTint="#424242" />
+                    android:thumbTint="@color/signal_green"
+                    android:trackTint="@color/graphite_700" />
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/navFullStepsPanel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:orientation="vertical"
-                android:visibility="gone"
-                android:layout_marginBottom="8dp">
+                android:visibility="gone">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="All steps (instruction \u2014 distance)"
-                    android:textColor="#81C784"
-                    android:textSize="12sp"
-                    android:layout_marginBottom="4dp" />
+                    android:layout_marginBottom="4dp"
+                    android:text="Instruction and distance"
+                    android:textColor="@color/text_muted"
+                    android:textSize="12sp" />
 
                 <ListView
                     android:id="@+id/navFullStepsList"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:background="#1B2E1B"
-                    android:divider="#2E5C2E"
+                    android:layout_height="190dp"
+                    android:background="@drawable/bg_console_slot"
+                    android:divider="@color/line_soft"
                     android:dividerHeight="1dp"
                     android:nestedScrollingEnabled="true" />
             </LinearLayout>
 
             <Button
                 android:id="@+id/btnStopNav"
+                style="@style/ConsoleButton"
                 android:layout_width="match_parent"
-                android:layout_height="42dp"
-                android:text="Stop Navigation"
-                android:backgroundTint="#C62828"
-                android:textColor="#FFFFFF"
-                android:textSize="13sp"
-                android:insetTop="0dp"
-                android:insetBottom="0dp"
-                android:layout_marginTop="12dp" />
+                android:layout_height="40dp"
+                android:layout_marginTop="12dp"
+                android:backgroundTint="@color/danger_red"
+                android:text="Stop"
+                android:textColor="@color/text_primary"
+                android:textSize="12sp"
+                android:textStyle="bold" />
         </LinearLayout>
 
-        <!-- ═══════════════════════════════════════════════════════════════ -->
-        <!-- GLASSES SETTINGS                                               -->
-        <!-- ═══════════════════════════════════════════════════════════════ -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:layout_marginBottom="14dp"
             android:background="@drawable/bg_card"
-            android:padding="16dp"
-            android:layout_marginBottom="12dp">
+            android:orientation="vertical"
+            android:padding="14dp">
 
             <TextView
                 style="@style/SectionTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="GLASSES SETTINGS" />
+                android:text="HUD CONTROLS" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_console_slot"
                 android:orientation="vertical"
-                android:background="#181818"
-                android:padding="12dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginBottom="10dp">
+                android:padding="12dp">
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="HUD layout"
-                    android:textColor="#FFFFFF"
+                    android:text="Layout"
+                    android:textColor="@color/text_primary"
                     android:textSize="15sp"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Switch the glasses HUD instantly."
-                    android:textColor="#757575"
-                    android:textSize="12sp"
-                    android:layout_marginTop="2dp" />
+                    android:layout_marginTop="2dp"
+                    android:text="Choose how route guidance sits in the glasses HUD."
+                    android:textColor="@color/text_muted"
+                    android:textSize="12sp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="10dp">
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
 
                     <Button
                         android:id="@+id/btnHudFull"
+                        style="@style/ConsoleButton"
                         android:layout_width="0dp"
-                        android:layout_height="40dp"
+                        android:layout_height="38dp"
                         android:layout_weight="1"
                         android:text="Full"
                         android:textSize="12sp"
-                        android:textStyle="bold"
-                        android:minWidth="0dp"
-                        android:insetTop="0dp"
-                        android:insetBottom="0dp" />
+                        android:textStyle="bold" />
 
                     <Button
                         android:id="@+id/btnHudStrip"
+                        style="@style/ConsoleButton"
                         android:layout_width="0dp"
-                        android:layout_height="40dp"
+                        android:layout_height="38dp"
+                        android:layout_marginStart="8dp"
                         android:layout_weight="1"
                         android:text="Strip"
                         android:textSize="12sp"
-                        android:textStyle="bold"
-                        android:minWidth="0dp"
-                        android:layout_marginStart="8dp"
-                        android:insetTop="0dp"
-                        android:insetBottom="0dp" />
+                        android:textStyle="bold" />
 
                     <Button
                         android:id="@+id/btnHudSplit"
+                        style="@style/ConsoleButton"
                         android:layout_width="0dp"
-                        android:layout_height="40dp"
+                        android:layout_height="38dp"
+                        android:layout_marginStart="8dp"
                         android:layout_weight="1"
                         android:text="Split"
                         android:textSize="12sp"
-                        android:textStyle="bold"
-                        android:minWidth="0dp"
-                        android:layout_marginStart="8dp"
-                        android:insetTop="0dp"
-                        android:insetBottom="0dp" />
+                        android:textStyle="bold" />
                 </LinearLayout>
             </LinearLayout>
 
-            <!-- Voice directions toggle -->
             <LinearLayout style="@style/ToggleRow">
 
                 <LinearLayout
@@ -632,33 +598,32 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Voice Directions"
-                        android:textColor="#E0E0E0"
+                        android:text="Voice directions"
+                        android:textColor="@color/text_primary"
                         android:textSize="15sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Read turn-by-turn instructions aloud"
-                        android:textColor="#757575"
-                        android:textSize="12sp"
-                        android:layout_marginTop="2dp" />
+                        android:layout_marginTop="2dp"
+                        android:text="Read turn instructions aloud"
+                        android:textColor="@color/text_muted"
+                        android:textSize="12sp" />
                 </LinearLayout>
 
                 <Switch
                     android:id="@+id/switchTts"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:thumbTint="#00E676"
-                    android:trackTint="#424242" />
+                    android:thumbTint="@color/signal_green"
+                    android:trackTint="@color/graphite_700" />
             </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="#2A2A2A" />
+                android:background="@color/line_soft" />
 
-            <!-- Units toggle (Imperial / Metric) -->
             <LinearLayout style="@style/ToggleRow">
 
                 <LinearLayout
@@ -670,29 +635,33 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Imperial Units"
-                        android:textColor="#E0E0E0"
+                        android:text="Imperial units"
+                        android:textColor="@color/text_primary"
                         android:textSize="15sp" />
 
                     <TextView
                         android:id="@+id/unitsDescription"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Show miles &amp; feet instead of km &amp; meters"
-                        android:textColor="#757575"
-                        android:textSize="12sp"
-                        android:layout_marginTop="2dp" />
+                        android:layout_marginTop="2dp"
+                        android:text="Show miles and feet"
+                        android:textColor="@color/text_muted"
+                        android:textSize="12sp" />
                 </LinearLayout>
 
                 <Switch
                     android:id="@+id/switchUnits"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:thumbTint="#FF9800"
-                    android:trackTint="#424242" />
+                    android:thumbTint="@color/attention_orange"
+                    android:trackTint="@color/graphite_700" />
             </LinearLayout>
 
-            <!-- Mini map on glasses -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/line_soft" />
+
             <LinearLayout style="@style/ToggleRow">
 
                 <LinearLayout
@@ -704,34 +673,70 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Compact HUD on glasses"
-                        android:textColor="#E0E0E0"
+                        android:text="Compact HUD"
+                        android:textColor="@color/text_primary"
                         android:textSize="15sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Use bottom 25% of the screen instead of full map"
-                        android:textColor="#757575"
-                        android:textSize="12sp"
-                        android:layout_marginTop="2dp" />
+                        android:layout_marginTop="2dp"
+                        android:text="Use a smaller route view on glasses"
+                        android:textColor="@color/text_muted"
+                        android:textSize="12sp" />
                 </LinearLayout>
 
                 <Switch
                     android:id="@+id/switchMiniMap"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:thumbTint="#00E676"
-                    android:trackTint="#424242" />
+                    android:thumbTint="@color/signal_green"
+                    android:trackTint="@color/graphite_700" />
             </LinearLayout>
 
-            <!-- Mini map style picker (shown when compact HUD is on) -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/line_soft" />
+
+            <LinearLayout style="@style/ToggleRow">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Nearby landmarks"
+                        android:textColor="@color/text_primary"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="Show stations, monuments, and major places on the HUD"
+                        android:textColor="@color/text_muted"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <Switch
+                    android:id="@+id/switchShowLandmarks"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:thumbTint="@color/link_blue"
+                    android:trackTint="@color/graphite_700" />
+            </LinearLayout>
+
             <RadioGroup
                 android:id="@+id/miniMapStyleGroup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:paddingStart="16dp"
+                android:paddingStart="10dp"
                 android:paddingEnd="8dp"
                 android:paddingBottom="8dp"
                 android:visibility="gone">
@@ -740,640 +745,632 @@
                     android:id="@+id/radioStrip"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Strip — map across the bottom, directions below"
-                    android:textColor="#BDBDBD"
-                    android:textSize="13sp"
-                    android:buttonTint="#00E676"
-                    android:checked="true" />
+                    android:buttonTint="@color/signal_green"
+                    android:checked="true"
+                    android:text="Strip: map across the bottom"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="13sp" />
 
                 <RadioButton
                     android:id="@+id/radioSplit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Split — map on left, directions on right"
-                    android:textColor="#BDBDBD"
-                    android:textSize="13sp"
-                    android:buttonTint="#00E676" />
+                    android:buttonTint="@color/signal_green"
+                    android:text="Split: map beside directions"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="13sp" />
             </RadioGroup>
 
             <Button
                 android:id="@+id/btnAdvancedToggle"
+                style="@style/ConsoleButton"
                 android:layout_width="match_parent"
-                android:layout_height="42dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="@color/graphite_800"
                 android:text="Show Advanced Settings"
-                android:backgroundTint="#2A2A2A"
-                android:textColor="#81C784"
-                android:textStyle="bold"
-                android:textSize="13sp"
-                android:insetTop="0dp"
-                android:insetBottom="0dp"
-                android:layout_marginTop="12dp" />
+                android:textColor="@color/text_secondary"
+                android:textSize="12sp"
+                android:textStyle="bold" />
 
             <LinearLayout
                 android:id="@+id/advancedSettingsPanel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
                 android:orientation="vertical"
-                android:visibility="gone"
-                android:layout_marginTop="12dp">
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#2A2A2A" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingVertical="12dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Google Providers"
-                    android:textColor="#E0E0E0"
-                    android:textSize="15sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Keep Rokid-Maps renderer, but optionally use Google for place search and routing."
-                    android:textColor="#757575"
-                    android:textSize="12sp"
-                    android:layout_marginTop="2dp" />
-
-                <EditText
-                    android:id="@+id/inputGoogleApiKey"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:hint="Google Maps API key"
-                    android:inputType="textNoSuggestions"
-                    android:maxLines="1"
-                    android:background="@drawable/bg_search"
-                    android:paddingHorizontal="12dp"
-                    android:textColor="#FFFFFF"
-                    android:textColorHint="#757575"
-                    android:layout_marginTop="8dp"
-                    android:fontFamily="monospace" />
-
-                <LinearLayout
-                    style="@style/ToggleRow">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Use Google for place search"
-                        android:textColor="#E0E0E0"
-                        android:textSize="14sp" />
-
-                    <Switch
-                        android:id="@+id/switchGoogleSearch"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:thumbTint="#4285F4"
-                        android:trackTint="#424242" />
-                </LinearLayout>
-
-                <LinearLayout
-                    style="@style/ToggleRow">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Use Google for routes"
-                        android:textColor="#E0E0E0"
-                        android:textSize="14sp" />
-
-                    <Switch
-                        android:id="@+id/switchGoogleRoutes"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:thumbTint="#4285F4"
-                        android:trackTint="#424242" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical"
-                    android:layout_marginTop="6dp">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Route mode"
-                        android:textColor="#E0E0E0"
-                        android:textSize="14sp" />
-
-                    <Spinner
-                        android:id="@+id/spinnerRouteMode"
-                        android:layout_width="wrap_content"
-                        android:layout_height="36dp"
-                        android:backgroundTint="#424242" />
-                </LinearLayout>
-
-                <Button
-                    android:id="@+id/btnSaveProviders"
-                    android:layout_width="match_parent"
-                    android:layout_height="38dp"
-                    android:text="Save Google Settings"
-                    android:backgroundTint="#4285F4"
-                    android:textColor="#FFFFFF"
-                    android:textSize="13sp"
-                    android:insetTop="0dp"
-                    android:insetBottom="0dp"
-                    android:layout_marginTop="6dp" />
-
-                <TextView
-                    android:id="@+id/providerStatusText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="#81C784"
-                    android:textSize="12sp"
-                    android:layout_marginTop="8dp" />
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#2A2A2A" />
-
-            <!-- Wi-Fi internet sharing toggle -->
-            <LinearLayout
-                style="@style/ToggleRow"
                 android:visibility="gone">
 
                 <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Wi-Fi Direct (local link)"
-                        android:textColor="#E0E0E0"
-                        android:textSize="15sp" />
-
-                    <TextView
-                        android:id="@+id/wifiShareStatus"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="P2P hotspot — no internet. Use Mobile Hotspot below for map tiles."
-                        android:textColor="#757575"
-                        android:textSize="12sp"
-                        android:layout_marginTop="2dp" />
-                </LinearLayout>
-
-                <Switch
-                    android:id="@+id/switchWifiShare"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:thumbTint="#448AFF"
-                    android:trackTint="#424242" />
-            </LinearLayout>
-
-            <!-- Wi-Fi info (shown when active) -->
-            <LinearLayout
-                android:id="@+id/wifiInfoCard"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:background="@drawable/bg_card_blue"
-                android:padding="12dp"
-                android:layout_marginTop="8dp"
-                android:visibility="gone">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Connect glasses to this network:"
-                    android:textColor="#90CAF9"
-                    android:textSize="12sp"
-                    android:layout_marginBottom="6dp" />
-
-                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical">
+                    android:background="@drawable/bg_console_slot"
+                    android:orientation="vertical"
+                    android:padding="12dp">
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="SSID  "
-                        android:textColor="#64B5F6"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:id="@+id/wifiSsidText"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:textColor="#FFFFFF"
+                        android:text="Routing providers"
+                        android:textColor="@color/text_primary"
                         android:textSize="15sp"
-                        android:textStyle="bold"
-                        android:fontFamily="monospace" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical"
-                    android:layout_marginTop="2dp">
+                        android:textStyle="bold" />
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Pass  "
-                        android:textColor="#64B5F6"
+                        android:layout_marginTop="2dp"
+                        android:text="Keep the Rokid renderer, optionally use Google for search and routes."
+                        android:textColor="@color/text_muted"
+                        android:textSize="12sp" />
+
+                    <EditText
+                        android:id="@+id/inputGoogleApiKey"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="9dp"
+                        android:background="@drawable/bg_search"
+                        android:fontFamily="monospace"
+                        android:hint="Google Maps API key"
+                        android:inputType="textNoSuggestions"
+                        android:maxLines="1"
+                        android:paddingHorizontal="12dp"
+                        android:textColor="@color/text_primary"
+                        android:textColorHint="@color/text_faint" />
+
+                    <LinearLayout style="@style/ToggleRowCompact">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Google search"
+                            android:textColor="@color/text_primary"
+                            android:textSize="14sp" />
+
+                        <Switch
+                            android:id="@+id/switchGoogleSearch"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:thumbTint="@color/connection_blue"
+                            android:trackTint="@color/graphite_700" />
+                    </LinearLayout>
+
+                    <LinearLayout style="@style/ToggleRowCompact">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Google routes"
+                            android:textColor="@color/text_primary"
+                            android:textSize="14sp" />
+
+                        <Switch
+                            android:id="@+id/switchGoogleRoutes"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:thumbTint="@color/connection_blue"
+                            android:trackTint="@color/graphite_700" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Default route mode"
+                            android:textColor="@color/text_primary"
+                            android:textSize="14sp" />
+
+                        <Spinner
+                            android:id="@+id/spinnerRouteMode"
+                            android:layout_width="wrap_content"
+                            android:layout_height="36dp"
+                            android:backgroundTint="@color/graphite_700" />
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/btnSaveProviders"
+                        style="@style/ConsoleButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="38dp"
+                        android:layout_marginTop="8dp"
+                        android:backgroundTint="@color/connection_blue"
+                        android:text="Save providers"
+                        android:textColor="@color/text_primary"
                         android:textSize="12sp" />
 
                     <TextView
-                        android:id="@+id/wifiPassText"
-                        android:layout_width="0dp"
+                        android:id="@+id/providerStatusText"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:textColor="#BBDEFB"
-                        android:textSize="14sp"
-                        android:fontFamily="monospace" />
+                        android:layout_marginTop="8dp"
+                        android:textColor="@color/signal_green"
+                        android:textSize="12sp" />
                 </LinearLayout>
-
-                <TextView
-                    android:id="@+id/wifiClientsText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="#546E7A"
-                    android:textSize="11sp"
-                    android:layout_marginTop="8dp" />
-            </LinearLayout>
-
-            <!-- Share internet: Mobile Hotspot (glasses get real internet) -->
-            <LinearLayout
-                android:id="@+id/hotspotCard"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:background="@drawable/bg_card_accent"
-                android:padding="12dp"
-                android:layout_marginTop="10dp">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Share internet (Mobile Hotspot)"
-                    android:textColor="#FFB74D"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Turn on Mobile Hotspot in phone Settings \u2192 Network \u2192 Hotspot. Then enter its name and password here so glasses can load map tiles."
-                    android:textColor="#BCAAA4"
-                    android:textSize="11sp"
-                    android:layout_marginTop="4dp" />
-
-                <EditText
-                    android:id="@+id/hotspotSsidInput"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:hint="Hotspot name (SSID)"
-                    android:inputType="text"
-                    android:maxLines="1"
-                    android:background="@drawable/bg_search"
-                    android:paddingHorizontal="12dp"
-                    android:textColor="#FFFFFF"
-                    android:textColorHint="#757575"
-                    android:layout_marginTop="8dp" />
-                <EditText
-                    android:id="@+id/hotspotPassInput"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:hint="Hotspot password"
-                    android:inputType="textPassword"
-                    android:maxLines="1"
-                    android:background="@drawable/bg_search"
-                    android:paddingHorizontal="12dp"
-                    android:textColor="#FFFFFF"
-                    android:textColorHint="#757575"
-                    android:layout_marginTop="6dp" />
-                <Button
-                    android:id="@+id/btnSendHotspotToGlasses"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:text="Send to glasses \u2192 connect with internet"
-                    android:backgroundTint="#FF9800"
-                    android:textColor="#000000"
-                    android:textSize="13sp"
-                    android:layout_marginTop="8dp"
-                    android:insetTop="0dp"
-                    android:insetBottom="0dp" />
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#2A2A2A"
-                android:layout_marginTop="12dp" />
-
-            <!-- Notification forwarding -->
-            <LinearLayout style="@style/ToggleRow">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Notification Forwarding"
-                        android:textColor="#E0E0E0"
-                        android:textSize="15sp" />
-
-                    <TextView
-                        android:id="@+id/notifStatusText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Show phone notifications on glasses"
-                        android:textColor="#757575"
-                        android:textSize="12sp"
-                        android:layout_marginTop="2dp" />
-                </LinearLayout>
-
-                <Button
-                    android:id="@+id/btnNotifAccess"
-                    android:layout_width="wrap_content"
-                    android:layout_height="34dp"
-                    android:minWidth="0dp"
-                    android:text="Grant"
-                    android:backgroundTint="#2A2A2A"
-                    android:textColor="#00E676"
-                    android:textSize="12sp"
-                    android:insetTop="0dp"
-                    android:insetBottom="0dp"
-                    android:paddingHorizontal="16dp" />
-            </LinearLayout>
-
-            <!-- Stream notifications to glasses (enable/disable sending) -->
-            <LinearLayout style="@style/ToggleRow">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Stream notifications to glasses"
-                        android:textColor="#E0E0E0"
-                        android:textSize="15sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Send phone notifications to glasses when they arrive"
-                        android:textColor="#757575"
-                        android:textSize="12sp"
-                        android:layout_marginTop="2dp" />
-                </LinearLayout>
-
-                <Switch
-                    android:id="@+id/switchStreamNotifications"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:thumbTint="#00E676"
-                    android:trackTint="#424242" />
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#2A2A2A" />
-
-            <!-- Turn alert overlay on glasses -->
-            <LinearLayout style="@style/ToggleRow">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Turn Alert on Glasses"
-                        android:textColor="#E0E0E0"
-                        android:textSize="15sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Show large turn overlay when approaching a turn"
-                        android:textColor="#757575"
-                        android:textSize="12sp"
-                        android:layout_marginTop="2dp" />
-                </LinearLayout>
-
-                <Switch
-                    android:id="@+id/switchTurnAlert"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:thumbTint="#FF9800"
-                    android:trackTint="#424242" />
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#2A2A2A" />
-
-            <!-- Show speed on glasses -->
-            <LinearLayout style="@style/ToggleRow">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Show Speed on Glasses"
-                        android:textColor="#E0E0E0"
-                        android:textSize="15sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Display current speed (mph or km/h based on units)"
-                        android:textColor="#757575"
-                        android:textSize="12sp"
-                        android:layout_marginTop="2dp" />
-                </LinearLayout>
-
-                <Switch
-                    android:id="@+id/switchShowSpeed"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:checked="true"
-                    android:thumbTint="#00E676"
-                    android:trackTint="#424242" />
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#2A2A2A" />
-
-            <!-- Show speed limit on glasses -->
-            <LinearLayout style="@style/ToggleRow">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Show Speed Limit on Glasses"
-                        android:textColor="#E0E0E0"
-                        android:textSize="15sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Display road speed limit (auto-detected, turns speed red if over)"
-                        android:textColor="#757575"
-                        android:textSize="12sp"
-                        android:layout_marginTop="2dp" />
-                </LinearLayout>
-
-                <Switch
-                    android:id="@+id/switchShowSpeedLimit"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:checked="true"
-                    android:thumbTint="#00E676"
-                    android:trackTint="#424242" />
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#2A2A2A" />
-
-            <!-- Map tile cache settings -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingVertical="12dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Map Tile Cache"
-                    android:textColor="#E0E0E0"
-                    android:textSize="15sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Cache map tiles to disk for faster loading"
-                    android:textColor="#757575"
-                    android:textSize="12sp"
-                    android:layout_marginTop="2dp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical"
-                    android:layout_marginTop="8dp">
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/bg_console_slot"
+                    android:orientation="vertical"
+                    android:padding="12dp">
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Max size: "
-                        android:textColor="#BDBDBD"
-                        android:textSize="13sp" />
+                        android:text="Connectivity"
+                        android:textColor="@color/text_primary"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
 
-                    <Spinner
-                        android:id="@+id/spinnerCacheSize"
-                        android:layout_width="wrap_content"
-                        android:layout_height="36dp"
-                        android:backgroundTint="#424242" />
+                    <LinearLayout
+                        style="@style/ToggleRowCompact"
+                        android:visibility="gone">
 
-                    <TextView
-                        android:id="@+id/cacheSizeText"
-                        android:layout_width="0dp"
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Wi-Fi Direct"
+                                android:textColor="@color/text_primary"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:id="@+id/wifiShareStatus"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="Local link for glasses, without internet."
+                                android:textColor="@color/text_muted"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+
+                        <Switch
+                            android:id="@+id/switchWifiShare"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:thumbTint="@color/connection_blue"
+                            android:trackTint="@color/graphite_700" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/wifiInfoCard"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:textColor="#757575"
-                        android:textSize="12sp"
-                        android:gravity="end"
-                        android:text="Used: --" />
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/bg_card_blue"
+                        android:orientation="vertical"
+                        android:padding="12dp"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="6dp"
+                            android:text="Connect glasses to this network"
+                            android:textColor="@color/connection_blue"
+                            android:textSize="12sp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="SSID"
+                                android:textColor="@color/text_muted"
+                                android:textSize="12sp" />
+
+                            <TextView
+                                android:id="@+id/wifiSsidText"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:layout_weight="1"
+                                android:fontFamily="monospace"
+                                android:textColor="@color/text_primary"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Pass"
+                                android:textColor="@color/text_muted"
+                                android:textSize="12sp" />
+
+                            <TextView
+                                android:id="@+id/wifiPassText"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:layout_weight="1"
+                                android:fontFamily="monospace"
+                                android:textColor="@color/text_secondary"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/wifiClientsText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:textColor="@color/text_muted"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/hotspotCard"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/bg_attention_panel"
+                        android:orientation="vertical"
+                        android:padding="12dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Mobile hotspot"
+                            android:textColor="@color/attention_orange"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="Enter the phone hotspot name and password for map tiles on glasses."
+                            android:textColor="@color/text_muted"
+                            android:textSize="12sp" />
+
+                        <EditText
+                            android:id="@+id/hotspotSsidInput"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_marginTop="8dp"
+                            android:background="@drawable/bg_search"
+                            android:hint="Hotspot name"
+                            android:inputType="text"
+                            android:maxLines="1"
+                            android:paddingHorizontal="12dp"
+                            android:textColor="@color/text_primary"
+                            android:textColorHint="@color/text_faint" />
+
+                        <EditText
+                            android:id="@+id/hotspotPassInput"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_marginTop="6dp"
+                            android:background="@drawable/bg_search"
+                            android:hint="Hotspot password"
+                            android:inputType="textPassword"
+                            android:maxLines="1"
+                            android:paddingHorizontal="12dp"
+                            android:textColor="@color/text_primary"
+                            android:textColorHint="@color/text_faint" />
+
+                        <Button
+                            android:id="@+id/btnSendHotspotToGlasses"
+                            style="@style/ConsoleButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="38dp"
+                            android:layout_marginTop="8dp"
+                            android:backgroundTint="@color/attention_orange"
+                            android:text="Send hotspot"
+                            android:textColor="@color/on_signal"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
                 </LinearLayout>
 
-                <Button
-                    android:id="@+id/btnClearCache"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="38dp"
-                    android:text="Clear Map Cache"
-                    android:backgroundTint="#2A2A2A"
-                    android:textColor="#FF8A80"
-                    android:textSize="13sp"
-                    android:insetTop="0dp"
-                    android:insetBottom="0dp"
-                    android:layout_marginTop="8dp" />
-            </LinearLayout>
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/bg_console_slot"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Notifications and safety"
+                        android:textColor="@color/text_primary"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout style="@style/ToggleRowCompact">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Notification access"
+                                android:textColor="@color/text_primary"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:id="@+id/notifStatusText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="Show phone notifications on glasses"
+                                android:textColor="@color/text_muted"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+
+                        <Button
+                            android:id="@+id/btnNotifAccess"
+                            style="@style/ConsoleButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="34dp"
+                            android:backgroundTint="@color/graphite_700"
+                            android:minWidth="74dp"
+                            android:text="Grant"
+                            android:textColor="@color/signal_green"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/line_soft" />
+
+                    <LinearLayout style="@style/ToggleRowCompact">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Stream notifications"
+                                android:textColor="@color/text_primary"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="Forward new phone alerts to glasses"
+                                android:textColor="@color/text_muted"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+
+                        <Switch
+                            android:id="@+id/switchStreamNotifications"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:thumbTint="@color/signal_green"
+                            android:trackTint="@color/graphite_700" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/line_soft" />
+
+                    <LinearLayout style="@style/ToggleRowCompact">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Turn alert"
+                                android:textColor="@color/text_primary"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="Large prompt near a turn"
+                                android:textColor="@color/text_muted"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+
+                        <Switch
+                            android:id="@+id/switchTurnAlert"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:thumbTint="@color/attention_orange"
+                            android:trackTint="@color/graphite_700" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/line_soft" />
+
+                    <LinearLayout style="@style/ToggleRowCompact">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Speed"
+                                android:textColor="@color/text_primary"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="Show current speed on glasses"
+                                android:textColor="@color/text_muted"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+
+                        <Switch
+                            android:id="@+id/switchShowSpeed"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="true"
+                            android:thumbTint="@color/signal_green"
+                            android:trackTint="@color/graphite_700" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/line_soft" />
+
+                    <LinearLayout style="@style/ToggleRowCompact">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Speed limit"
+                                android:textColor="@color/text_primary"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="Show detected road limit"
+                                android:textColor="@color/text_muted"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+
+                        <Switch
+                            android:id="@+id/switchShowSpeedLimit"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="true"
+                            android:thumbTint="@color/signal_green"
+                            android:trackTint="@color/graphite_700" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/bg_console_slot"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Map tile cache"
+                        android:textColor="@color/text_primary"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="Store tiles locally for faster reloads."
+                        android:textColor="@color/text_muted"
+                        android:textSize="12sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Max"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="13sp" />
+
+                        <Spinner
+                            android:id="@+id/spinnerCacheSize"
+                            android:layout_width="wrap_content"
+                            android:layout_height="36dp"
+                            android:layout_marginStart="10dp"
+                            android:backgroundTint="@color/graphite_700" />
+
+                        <TextView
+                            android:id="@+id/cacheSizeText"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="end"
+                            android:text="Used: --"
+                            android:textColor="@color/text_muted"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/btnClearCache"
+                        style="@style/ConsoleButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="38dp"
+                        android:layout_marginTop="8dp"
+                        android:backgroundTint="@color/graphite_800"
+                        android:text="Clear cache"
+                        android:textColor="@color/danger_red"
+                        android:textSize="12sp" />
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
 
-        <!-- ═══════════════════════════════════════════════════════════════ -->
-        <!-- STATUS                                                         -->
-        <!-- ═══════════════════════════════════════════════════════════════ -->
-        <TextView
-            android:id="@+id/statusText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="#616161"
-            android:textSize="12sp"
-            android:fontFamily="monospace"
-            android:gravity="center"
-            android:padding="8dp"
-            android:text="Tap Start Streaming to begin" />
-
-        <!-- ═══════════════════════════════════════════════════════════════ -->
-        <!-- SUPPORT                                                        -->
-        <!-- ═══════════════════════════════════════════════════════════════ -->
         <Button
             android:id="@+id/btnBuyMeACoffee"
+            style="@style/ConsoleButton"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:text="Buy Me a Coffee"
-            android:backgroundTint="#FFDD00"
-            android:textColor="#000000"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
-            android:layout_marginTop="8dp" />
-
+            android:layout_height="42dp"
+            android:backgroundTint="@color/graphite_850"
+            android:text="Support project"
+            android:textColor="@color/attention_orange"
+            android:textSize="13sp" />
     </LinearLayout>
 </ScrollView>

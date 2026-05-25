@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.rokid.hud.glasses"
+    namespace = "com.anezium.rokidgmaps.glasses"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.rokid.hud.glasses"
+        applicationId = "com.anezium.rokidgmaps.glasses"
         minSdk = 28
         targetSdk = 34
         versionCode = 1

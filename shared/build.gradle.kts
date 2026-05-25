@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.rokid.hud.shared"
+    namespace = "com.anezium.rokidgmaps.shared"
     compileSdk = 34
 
     defaultConfig {

@@ -1,2 +1,2 @@
 -keepattributes *Annotation*
--keep class com.rokid.hud.shared.protocol.** { *; }
+-keep class com.anezium.rokidgmaps.shared.protocol.** { *; }

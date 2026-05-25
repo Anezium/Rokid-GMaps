@@ -11,11 +11,11 @@ val localProps = Properties().apply {
 }
 
 android {
-    namespace = "com.rokid.hud.phone"
+    namespace = "com.anezium.rokidgmaps.phone"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.rokid.hud.phone"
+        applicationId = "com.anezium.rokidgmaps.phone"
         minSdk = 28
         targetSdk = 34
         versionCode = 1

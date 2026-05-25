@@ -1,0 +1,112 @@
+package com.anezium.rokidgmaps.glasses
+
+import com.anezium.rokidgmaps.shared.protocol.StepInfo
+import com.anezium.rokidgmaps.shared.protocol.PoiInfo
+import com.anezium.rokidgmaps.shared.protocol.Waypoint
+
+enum class MapLayoutMode {
+    FULL_SCREEN,
+    SMALL_CORNER,
+    /** Phone-controlled: 25% map strip at bottom, direction+distance text, no notifications */
+    MINI_BOTTOM,
+    /** Phone-controlled: bottom 25% split — map on left, directions on right, no notifications */
+    MINI_SPLIT
+}
+
+enum class HudContentView {
+    HUD,
+    TRANSIT_RECAP,
+    FULL_MAP
+}
+
+data class NotificationItem(
+    val title: String?,
+    val text: String?,
+    val packageName: String?,
+    val timeMs: Long
+)
+
+data class HudState(
+    val latitude: Double = 0.0,
+    val longitude: Double = 0.0,
+    val bearing: Float = 0f,
+    val speed: Float = 0f,
+    val accuracy: Float = 0f,
+    val waypoints: List<Waypoint> = emptyList(),
+    val totalDistance: Double = 0.0,
+    val totalDuration: Double = 0.0,
+    val instruction: String = "",
+    val maneuver: String = "",
+    val stepDistance: Double = 0.0,
+    val notifications: List<NotificationItem> = emptyList(),
+    val layoutMode: MapLayoutMode = MapLayoutMode.FULL_SCREEN,
+    val ttsEnabled: Boolean = false,
+    val useImperial: Boolean = false,
+    val routeMode: String = "drive",
+    val streamNotifications: Boolean = true,
+    val showUpcomingSteps: Boolean = false,
+    val showLandmarks: Boolean = true,
+    val landmarks: List<PoiInfo> = emptyList(),
+    val allSteps: List<StepInfo> = emptyList(),
+    val currentStepIndex: Int = 0,
+    val batteryLevel: Int = -1,
+    val btConnected: Boolean = false,
+    val wifiConnected: Boolean = false,
+    val speedLimitKmh: Int = -1,
+    val distToNextStep: Double = -1.0,
+    val showTurnAlert: Boolean = false,
+    val tileCacheSizeMb: Int = 100,
+    val showSpeed: Boolean = true,
+    val showSpeedLimit: Boolean = true,
+    val previewActive: Boolean = false,
+    val contentView: HudContentView = HudContentView.HUD,
+    /** When set, shown prominently (e.g. "Rokid Maps is closing") before app exits. */
+    val closingMessage: String? = null
+) {
+    companion object {
+        const val MAX_NOTIFICATIONS = 8
+    }
+
+    fun withNotification(item: NotificationItem): HudState {
+        val updated = (listOf(item) + notifications).take(MAX_NOTIFICATIONS)
+        return copy(notifications = updated)
+    }
+
+    fun toggleLayout(): HudState = copy(
+        layoutMode = when (layoutMode) {
+            MapLayoutMode.FULL_SCREEN -> MapLayoutMode.SMALL_CORNER
+            MapLayoutMode.SMALL_CORNER -> MapLayoutMode.FULL_SCREEN
+            MapLayoutMode.MINI_BOTTOM -> MapLayoutMode.FULL_SCREEN
+            MapLayoutMode.MINI_SPLIT -> MapLayoutMode.FULL_SCREEN
+        }
+    )
+
+    fun hasTransitContent(): Boolean =
+        allSteps.any { it.maneuver.equals("transit", ignoreCase = true) }
+
+    fun normalizedContentView(): HudContentView {
+        return if (contentView == HudContentView.TRANSIT_RECAP && !hasTransitContent()) {
+            HudContentView.HUD
+        } else {
+            contentView
+        }
+    }
+
+    fun cycleContentView(forward: Boolean = true): HudState {
+        val views = if (hasTransitContent()) {
+            listOf(HudContentView.HUD, HudContentView.TRANSIT_RECAP, HudContentView.FULL_MAP)
+        } else {
+            listOf(HudContentView.HUD, HudContentView.FULL_MAP)
+        }
+        val current = normalizedContentView()
+        val index = views.indexOf(current).takeIf { it >= 0 } ?: 0
+        val nextIndex = if (forward) {
+            (index + 1) % views.size
+        } else {
+            (index - 1 + views.size) % views.size
+        }
+        return copy(contentView = views[nextIndex])
+    }
+
+    fun toggleContentView(): HudState = cycleContentView(forward = true)
+}
