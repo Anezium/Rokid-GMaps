@@ -19,6 +19,10 @@
         <item name="android:windowLightNavigationBar">false</item>
     </style>
 
+    <style name="Theme.RokidHud.Splash" parent="Theme.RokidHud">
+        <item name="android:windowBackground">@drawable/splash_background</item>
+    </style>
+
     <style name="CardSection">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
