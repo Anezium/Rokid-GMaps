@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.2] - 2026-05-29
+
+### Changed
+
+- Publish the package ID migration under `com.anezium.rokidgmaps.*` for both phone and glasses.
+- Bump both Android modules to versionCode 2 / versionName 1.0.2 for a paired migration release.
+
 ## [1.0.0] - 2026-03-27
 
 Initial MVP release of `Rokid-GMaps`.

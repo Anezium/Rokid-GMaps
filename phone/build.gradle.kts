@@ -18,8 +18,8 @@ android {
         applicationId = "com.anezium.rokidgmaps.phone"
         minSdk = 28
         targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 2
+        versionName = "1.0.2"
 
         buildConfigField("String", "ROKID_CLIENT_ID",
             "\"${localProps.getProperty("rokid.client.id", "")}\"")
