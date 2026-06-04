@@ -1,22 +1,27 @@
 # Rokid-GMaps
 
-`Rokid-GMaps` is a reworked fork of `Rokid-Maps` for a phone-plus-glasses setup.
+<p align="center">
+  <img src="glasses/src/main/res/drawable-nodpi/rokid_gmaps_logo.png" alt="Rokid-GMaps logo" width="120" />
+</p>
 
-The current MVP keeps the original `Rokid-Maps` architecture and OSM renderer, but adds optional Google providers on the phone side:
+<h3 align="center">Phone companion + Rokid glasses navigation HUD</h3>
 
-- `Google Places API` for place search
-- `Google Routes API` for navigation routes
-- `OSM / Nominatim / OSRM` still available as fallback
+<p align="center">
+  <img alt="Android" src="https://img.shields.io/badge/Android-SDK%2034-35dd7a?style=for-the-badge&logo=android&logoColor=ffffff&labelColor=20262a">
+  <img alt="Kotlin" src="https://img.shields.io/badge/Kotlin-2.1-7f52ff?style=for-the-badge&logo=kotlin&logoColor=ffffff&labelColor=20262a">
+  <img alt="Rokid CXR" src="https://img.shields.io/badge/Rokid-CXR-19b6ff?style=for-the-badge&labelColor=20262a">
+  <img alt="osmdroid" src="https://img.shields.io/badge/osmdroid-maps-6ab04c?style=for-the-badge&labelColor=20262a">
+</p>
 
-## Current Layout
+<p align="center">
+  <img alt="Google Routes" src="https://img.shields.io/badge/Google-Routes%20%2B%20Places-4285f4?style=for-the-badge&logo=googlemaps&logoColor=ffffff&labelColor=20262a">
+  <img alt="Material Components" src="https://img.shields.io/badge/Material-Components-00c853?style=for-the-badge&labelColor=20262a">
+  <a href="https://www.buymeacoffee.com/charleshartmann"><img alt="Support on Buy Me a Coffee" src="https://img.shields.io/badge/Support-Buy%20Me%20a%20Coffee-ffdd00?style=for-the-badge&logo=buymeacoffee&logoColor=111111&labelColor=20262a"></a>
+</p>
 
-- `phone/`: Android phone app, main UI, search, route calculation, Bluetooth streaming
-- `glasses/`: Rokid HUD app for navigation display
-- `shared/`: shared protocol and models
+`Rokid-GMaps` is a reworked fork of `Rokid-Maps` for a phone-plus-glasses setup. The phone handles search, route calculation, providers, and map preview; the glasses render a lean green HUD for navigation.
 
 ## Screenshots
-
-Phone companion route preview and glasses HUD views for a transit route to Gare de l'Est.
 
 <p align="center">
   <img src="screenshots/phone/rokid-gmaps-phone-gare-est.png" alt="Rokid Maps phone companion route preview to Gare de l'Est" width="360" />
@@ -28,21 +33,38 @@ Phone companion route preview and glasses HUD views for a transit route to Gare 
   <img src="screenshots/glasses/rokid-gmaps-gare-est-map.png" alt="Rokid glasses full map to Gare de l'Est" width="220" />
 </p>
 
-## Current Provider Model
+## Highlights
 
-The renderer stays based on the original `Rokid-Maps` stack.
+| Block | What it does |
+| --- | --- |
+| Phone companion | Search destinations, preview routes, choose drive/walk/transit, and stream state to the glasses. |
+| Glasses HUD | Shows turn guidance, mini/full map modes, route metadata, transit recap, and connection status on a 480x640 display. |
+| Provider model | Keeps OSM/Nominatim/OSRM fallback while allowing optional Google Places and Google Routes support. |
+| Transit flow | Phone-side Google Routes can calculate transit; the glasses show a compact line-by-line plan. |
+| Map tiles | Glasses can draw cached/proxied map tiles while staying lightweight for Android Go / wearable constraints. |
 
-The phone app can now switch providers from its settings screen:
+## Project Layout
 
-- search provider: `OSM` or `Google`
-- route provider: `OSRM` or `Google`
-- Google API key: entered directly in the phone app settings
+| Module | Purpose |
+| --- | --- |
+| `phone/` | Android phone app, companion console, search, route calculation, Bluetooth streaming, settings. |
+| `glasses/` | Rokid HUD app for the glasses display and navigation rendering. |
+| `shared/` | Shared protocol messages, codecs, route models, and tile cache helpers. |
+
+## Provider Model
+
+| Feature | Default | Optional |
+| --- | --- | --- |
+| Place search | OSM / Nominatim | Google Places API |
+| Route calculation | OSRM | Google Routes API |
+| Transit routing | Not available through OSRM | Google Routes API |
+| API key storage | None required for fallback | Entered in the phone app settings |
 
 Google is only used when enabled and when an API key is present.
 
 ## Google Setup
 
-Enable billing and the following APIs in Google Cloud:
+Enable billing and these APIs in Google Cloud:
 
 - `Places API`
 - `Routes API`
@@ -63,20 +85,24 @@ From the project root:
 
 Outputs:
 
-- `phone/build/outputs/apk/debug/phone-debug.apk`
-- `glasses/build/outputs/apk/debug/glasses-debug.apk`
+| App | APK |
+| --- | --- |
+| Phone companion | `phone/build/outputs/apk/debug/phone-debug.apk` |
+| Glasses HUD | `glasses/build/outputs/apk/debug/glasses-debug.apk` |
 
-## MVP Scope
+## Current Scope
 
-Current goal:
+| Done | Still evolving |
+| --- | --- |
+| Phone + glasses navigation architecture | More polished provider UX |
+| Optional Google search/routes providers | Backend/proxy for securing Google API keys |
+| Drive, walk, and transit route modes | Deeper merge with `Clawsses` |
+| Route preview and glasses HUD screenshots | Richer transit/subway fusion |
 
-- keep `Rokid-Maps` as the base
-- add Google provider integration cleanly
-- keep the system simple enough to evolve into a larger Rokid super-app later
+## Support
 
-Not done yet:
+If this project helps you build with Rokid glasses, you can support it here:
 
-- transit/subway fusion
-- polished provider UX
-- backend/proxy for securing Google calls
-- deeper merge with `Clawsses`
+<p align="center">
+  <a href="https://www.buymeacoffee.com/charleshartmann"><img alt="Buy Me a Coffee" src="https://img.shields.io/badge/Buy%20Me%20a%20Coffee-charleshartmann-ffdd00?style=for-the-badge&logo=buymeacoffee&logoColor=111111"></a>
+</p>
