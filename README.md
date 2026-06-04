@@ -16,7 +16,7 @@
 <p align="center">
   <img alt="Google Routes" src="https://img.shields.io/badge/Google-Routes%20%2B%20Places-4285f4?style=for-the-badge&logo=googlemaps&logoColor=ffffff&labelColor=20262a">
   <img alt="Material Components" src="https://img.shields.io/badge/Material-Components-00c853?style=for-the-badge&labelColor=20262a">
-  <a href="https://www.buymeacoffee.com/charleshartmann"><img alt="Support on Buy Me a Coffee" src="https://img.shields.io/badge/Support-Buy%20Me%20a%20Coffee-ffdd00?style=for-the-badge&logo=buymeacoffee&logoColor=111111&labelColor=20262a"></a>
+  <a href="https://ko-fi.com/anezium"><img alt="Support on Ko-fi" src="https://img.shields.io/badge/Support-Ko--fi-ff5e5b?style=for-the-badge&logo=kofi&logoColor=ffffff&labelColor=20262a"></a>
 </p>
 
 `Rokid-GMaps` is a reworked fork of `Rokid-Maps` for a phone-plus-glasses setup. The phone handles search, route calculation, providers, and map preview; the glasses render a lean green HUD for navigation.
@@ -104,5 +104,5 @@ Outputs:
 If this project helps you build with Rokid glasses, you can support it here:
 
 <p align="center">
-  <a href="https://www.buymeacoffee.com/charleshartmann"><img alt="Buy Me a Coffee" src="https://img.shields.io/badge/Buy%20Me%20a%20Coffee-charleshartmann-ffdd00?style=for-the-badge&logo=buymeacoffee&logoColor=111111"></a>
+  <a href="https://ko-fi.com/anezium"><img alt="Support on Ko-fi" src="https://img.shields.io/badge/Ko--fi-anezium-ff5e5b?style=for-the-badge&logo=kofi&logoColor=ffffff"></a>
 </p>
