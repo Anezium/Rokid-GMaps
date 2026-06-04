@@ -14,6 +14,20 @@ The current MVP keeps the original `Rokid-Maps` architecture and OSM renderer, b
 - `glasses/`: Rokid HUD app for navigation display
 - `shared/`: shared protocol and models
 
+## Screenshots
+
+Phone companion route preview and glasses HUD views for a transit route to Gare de l'Est.
+
+<p align="center">
+  <img src="screenshots/phone/rokid-gmaps-phone-gare-est.png" alt="Rokid Maps phone companion route preview to Gare de l'Est" width="360" />
+</p>
+
+<p align="center">
+  <img src="screenshots/glasses/rokid-gmaps-gare-est-hud.png" alt="Rokid glasses HUD to Gare de l'Est" width="220" />
+  <img src="screenshots/glasses/rokid-gmaps-gare-est-transit.png" alt="Rokid glasses transit recap to Gare de l'Est" width="220" />
+  <img src="screenshots/glasses/rokid-gmaps-gare-est-map.png" alt="Rokid glasses full map to Gare de l'Est" width="220" />
+</p>
+
 ## Current Provider Model
 
 The renderer stays based on the original `Rokid-Maps` stack.
